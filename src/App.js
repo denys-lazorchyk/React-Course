@@ -9,11 +9,15 @@ function App() {
 
 	//to add handlers you can write function and then add on+(name of event)
 	//
+
+	//STATE:
+	//
 	let name = "Denys";
 
 	const clickHandler = function (name) {
 		console.log(`hello ${name}`);
 	};
+
 	return (
 		<div>
 			<h1>Hello React</h1>
