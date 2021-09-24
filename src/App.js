@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEfect } from "react";
 import TweetList from "./components/TweetList";
 import CreateTweet from "./components/CreateTweet";
 
@@ -26,6 +26,21 @@ function App() {
 	//the reason for that - is we have miltiple objects that are siblings
 	//
 	//for generating random props.key we use UUID
+
+	//
+	// for CSS create a separate file and then import it to App.js
+	//or
+	// you can use css modules, so jsut write for example: App.module.css
+	//then import it in App.js: import s from '...App.module.css'
+	//and then use 's' as object
+
+	//useEfect
+	//is used to run specific functionality whenever something happens
+	// useEfect(() => {
+	// 	console.log("I am running function");
+	// }, []);
+	//
+	//then in [] you can pass objects, so fcuntion will be rub each time those objects are updated
 
 	let name = "Denys";
 	// const [name, setName] = useState("Denys");
