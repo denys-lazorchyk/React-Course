@@ -1,17 +1,20 @@
 import React from "react";
 
-const Tweet = () => {
+const Tweet = ({ name, tweet, tweets, setTweets }) => {
 	// document.querySelector(".submit").addEventListener("click", () => {
 	// 	props.name = "changed";
 	// });
-	// console.log(document.querySelector(".submit"));
+
+	const deleteTweet = function () {
+		setTweets(tweets.filter((t) => t.id !== tweet.id));
+	};
 
 	return (
 		<div className="tweet">
-			<h2>Name</h2>
-			<h3>This is tweet</h3>
+			<h2>{name}</h2>
+			<h3>{tweet}</h3>
 			<button>Publish</button>
-			<button>Remove</button>
+			<button onClick={deleteTweet}>Remove</button>
 		</div>
 	);
 };

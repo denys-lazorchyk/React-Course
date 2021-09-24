@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TweetList from "./components/TweetList";
 import CreateTweet from "./components/CreateTweet";
 
@@ -11,19 +12,34 @@ function App() {
 	//
 
 	//STATE:
+	//you have to import it from react as well,
+	//it has such structure:
+	//then if you update it with second fucntion(setName in this case)
+	// it will rerender just part of UI that uses that state
 	//
-	let name = "Denys";
+	//then you can pass down state and stateSetter to modify it
 
-	const clickHandler = function (name) {
-		console.log(`hello ${name}`);
-	};
+	//if you need to access state from sibling component,
+	//then you have to uplift state and then pass to those 2 siblings
+
+	//the problem with updaing state is that you should do it based on porps.key
+	//the reason for that - is we have miltiple objects that are siblings
+	//
+	//for generating random props.key we use UUID
+
+	let name = "Denys";
+	// const [name, setName] = useState("Denys");
+	const [tweets, setTweets] = useState([]);
 
 	return (
 		<div>
-			<h1>Hello React</h1>
-			{/* <CreateTweet name={name}></CreateTweet>
-			<TweetList name={name}></TweetList> */}
-			<button onClick={() => clickHandler("Denys")}>click me</button>
+			<h1>Hello {name}</h1>
+			<CreateTweet
+				name={name}
+				tweets={tweets}
+				setTweets={setTweets}
+			></CreateTweet>
+			<TweetList name={name} tweets={tweets} setTweets={setTweets}></TweetList>
 		</div>
 	);
 }
